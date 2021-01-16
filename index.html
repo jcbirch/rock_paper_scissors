@@ -11,33 +11,40 @@
     <script>
 
 
-
         function computerPlay(computerSelection) {
             const myArray = ["rock", "paper", "scissors"];
             return myArray[Math.floor(Math.random() * myArray.length)];
 
         }
 
-        function playRound(playerSelection, computerSelection) {
+        function game() {
+            while (playerScore < 5 && computerScore <5)
 
-            if (playerSelection === computerSelection) {
-                return "It's a tie!";
-            } else if (playerSelection === "rock" && computerSelection === "scissors"
-                || playerSelection === "paper" && computerSelection === "rock" ||
-                playerSelection === "scissors" && computerSelection === "paper") {
-                return "Player wins!";
-            } else {
-                return "Computer wins!";
+
+
+
+            function playRound(playerSelection, computerSelection) {
+
+                if (playerSelection === computerSelection) {
+                    return "It's a tie!";
+                } else if (playerSelection === "rock" && computerSelection === "scissors"
+                    || playerSelection === "paper" && computerSelection === "rock" ||
+                    playerSelection === "scissors" && computerSelection === "paper") {
+                    return "Player Wins round!";
+                } else {
+                    return "Computer Wins round";
+                }
+
             }
-
         }
 
-
-        const playerSelection = "rock".toLowerCase();
+        const playerSelection = "rock";
         const computerSelection = computerPlay();
+        const playerScore = 0;
+        const computerScore = 0;
 
-        console.log(computerSelection, playerSelection,
-            playRound(playerSelection, computerSelection));
+
+        console.log(playerSelection, computerSelection,);
 
     </script>
 </body>
