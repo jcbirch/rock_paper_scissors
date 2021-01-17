@@ -11,40 +11,59 @@
     <script>
 
 
-        function computerPlay(computerSelection) {
-            const myArray = ["rock", "paper", "scissors"];
-            return myArray[Math.floor(Math.random() * myArray.length)];
 
-        }
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundCount = 0;
 
-        function game() {
-            while (playerScore < 5 && computerScore <5)
 
+        while (roundCount < 5) {
+            const playerSelection = prompt("Rock, Paper, or Scissors".toLowerCase);
+            const computerSelection = computerPlay();
+
+            if (playRound === "A tie") {
+                roundCount++
+            } else if (playRound(playerSelection, computerSelection) === "Player wins") {
+                playerScore++;
+                roundCount++;
+            } else {
+                computerScore++;
+                roundCount++;
+            }
+
+
+            function computerPlay(computerSelection) {
+                const myArray = ["rock", "paper", "scissors"];
+                return myArray[Math.floor(Math.random() * myArray.length)];
+            }
 
 
 
             function playRound(playerSelection, computerSelection) {
-
                 if (playerSelection === computerSelection) {
-                    return "It's a tie!";
+                    return "A tie";
                 } else if (playerSelection === "rock" && computerSelection === "scissors"
                     || playerSelection === "paper" && computerSelection === "rock" ||
                     playerSelection === "scissors" && computerSelection === "paper") {
-                    return "Player Wins round!";
+                    return "Player wins"
                 } else {
-                    return "Computer Wins round";
+                    return "Computer wins"
                 }
-
             }
+
+
+
         }
 
-        const playerSelection = "rock";
-        const computerSelection = computerPlay();
-        const playerScore = 0;
-        const computerScore = 0;
+
+        if (playerScore > computerScore) {
+            console.log("Player wins game!");
+        } else if (computerScore > playerScore) {
+            console.log("Computer wins game!");
+        }
 
 
-        console.log(playerSelection, computerSelection,);
+        console.log(playerScore, computerScore, roundCount);
 
     </script>
 </body>
