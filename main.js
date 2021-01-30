@@ -56,8 +56,11 @@ function restartGame() {
     document.getElementById("paper").disabled=true;
     document.getElementById("scissors").disabled=true;
 
-    const myobj = document.getElementById("round-winner");
-    myobj.remove();
+    const roundWinner = document.getElementById("round-winner");
+    roundWinner.remove();
+
+    const choices = document.getElementById("choices");
+    choices.remove();
       
 
     const btn = document.createElement("BUTTON");  
