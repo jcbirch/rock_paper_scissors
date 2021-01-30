@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundCount = 0;
+
+
+        while (roundCount < 5) {
+            const playerSelection = prompt("Rock, Paper, or Scissors".toLowerCase);
+            const computerSelection = computerPlay();
+
+            if (playRound === "A tie") {
+                roundCount++
+            } else if (playRound(playerSelection, computerSelection) === "Player wins") {
+                playerScore++;
+                roundCount++;
+            } else {
+                computerScore++;
+                roundCount++;
+            }
+
+
+            function computerPlay(computerSelection) {
+                const myArray = ["rock", "paper", "scissors"];
+                return myArray[Math.floor(Math.random() * myArray.length)];
+            }
+
+
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection === computerSelection) {
+                    return "A tie";
+                } else if (playerSelection === "rock" && computerSelection === "scissors"
+                    || playerSelection === "paper" && computerSelection === "rock" ||
+                    playerSelection === "scissors" && computerSelection === "paper") {
+                    return "Player wins"
+                } else {
+                    return "Computer wins"
+                }
+            }
+
+
+
+        }
+
+
+        if (playerScore > computerScore) {
+            console.log("Player wins game!");
+        } else if (computerScore > playerScore) {
+            console.log("Computer wins game!");
+        }
+
+
+        console.log(playerScore, computerScore, roundCount);
+
+    </script>
+</body>
+
+</html>
